@@ -86,7 +86,6 @@ const btnContainerDOM = document.querySelector(".btn-container");
 const menuContainerDOM = document.querySelector(".section-center", ".row");
 const btnList = ['All', 'Korea', 'Japan', 'China'];
 
-// Adding Menu Buttons - with createElement
 btnList.forEach((value) => {
   let button = document.createElement("button");
   button.innerHTML = value;
@@ -96,7 +95,6 @@ btnList.forEach((value) => {
   btnContainerDOM.append(button);
 });
 
-// Clicking Menu Buttons 
 function buttonClick(){
   const result = (this.getAttribute("data-id") == "All") ? menu : menu.filter((item) => {
     return item.category == this.getAttribute("data-id");
@@ -104,9 +102,8 @@ function buttonClick(){
   addMenu(result);
 };
 
-// Adding Menu Items - with Template literals
 function addMenu(showMenu) {
-  menuContainerDOM.innerHTML = ""; // container clear
+  menuContainerDOM.innerHTML = "";
   for (let item in showMenu) {
     let menuItem = document.createElement("div");
     menuItem.classList.add("menu-items", "col-lg-6", "col-sm-12");
@@ -124,5 +121,4 @@ function addMenu(showMenu) {
   }
 };
 
-// Show all items at startup
 addMenu(menu);
